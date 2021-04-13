@@ -1,0 +1,60 @@
+from tkinter import Tk, Menu
+
+top = Tk()
+
+menubar = Menu(top)
+file = Menu(menubar, tearoff=0)
+file.add_command(label="new                         ctrl+N")
+file.add_command(label="new window   ctrl+shift+N")
+file.add_command(label="open                        ctrl+O")
+file.add_command(label="save                        ctrl+S")
+file.add_command(label="save as               ctrl+shift+S")
+file.add_command(label="page setup  ")
+file.add_command(label="print                       ctrl+P")
+file.add_separator()
+
+file.add_command(label="exit", command=top.quit)
+
+menubar.add_cascade(label='File', menu=file)
+
+edit = Menu(menubar, tearoff=0)
+edit.add_command(label="undo  ctrl+Z")
+
+edit.add_separator()
+
+edit.add_command(label="cut                    ctrl+X")
+edit.add_command(label="copy                   ctrl+C")
+edit.add_command(label="paste                  ctrl+V")
+edit.add_command(label="delete                    del")
+edit.add_command(label="search with bing       ctrl+E")
+edit.add_command(label="find                   ctrl+F")
+edit.add_command(label="find next                  F3")
+edit.add_command(label="find previous        shift+F3")
+edit.add_command(label="replace                ctrl+H")
+edit.add_command(label="go to                  ctrl+G")
+edit.add_command(label="select all             ctrl+A")
+edit.add_command(label="time/date                  F5")
+
+menubar.add_cascade(label="Edit", menu=edit)
+
+Format = Menu(menubar, tearoff=0)
+Format.add_command(label="word wrap")
+Format.add_separator()
+Format.add_command(label="font")
+menubar.add_cascade(label="Format", menu=Format)
+
+view = Menu(menubar, tearoff=0)
+view.add_command(label="zoom")
+view.add_separator()
+view.add_command(label="status bar")
+menubar.add_cascade(label="View", menu=view)
+
+Help = Menu(menubar, tearoff=0)
+Help.add_command(label="view help")
+Help.add_command(label="send feedback")
+Help.add_separator()
+Help.add_command(label="about notepad")
+menubar.add_cascade(label="Help", menu=Help)
+
+top.config(menu=menubar)
+top.mainloop()
